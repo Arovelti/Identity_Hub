@@ -34,26 +34,10 @@ var (
 
 func BasicAuthInterceptor(repo repository.Repository) grpc.UnaryServerInterceptor {
 	return func(ctx context.Context, req any, info *grpc.UnaryServerInfo, handler grpc.UnaryHandler) (resp any, err error) {
-		//	var username, password string
-
 		username, password, err := extractCredentialsFromMetadata(ctx)
 		if err != nil {
 			return nil, fmt.Errorf("basic auth interceptor: %v", err)
 		}
-
-		// if md, ok := metadata.FromIncomingContext(ctx); ok {
-		// 	authHeader := strings.Join(md.Get("authorization"), "")
-		// 	if strings.HasPrefix(authHeader, "Basic ") {
-		// 		creds, err := base64.StdEncoding.DecodeString(strings.TrimPrefix(authHeader, "Basic "))
-		// 		if err == nil {
-		// 			credsSlice := strings.SplitN(string(creds), ":", 2)
-		// 			if len(credsSlice) == 2 {
-		// 				username = credsSlice[0]
-		// 				password = credsSlice[1]
-		// 			}
-		// 		}
-		// 	}
-		// }
 
 		// Perform user authentication
 		user, err := authenticate(repo, username, password)

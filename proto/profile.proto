@@ -92,8 +92,7 @@ service Profiles {
 
     rpc DeleteProfileByID(DeleteProfileRequest) returns (google.protobuf.Empty) {
         option (google.api.http) = {
-            post: "/profile/{id}"
-            body: "*"
+            delete: "/profile/{id}"
         };
     }
 }
