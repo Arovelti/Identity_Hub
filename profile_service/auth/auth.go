@@ -22,6 +22,7 @@ var (
 		"/pb.profile.Profiles/DeleteProfileByID": {},
 
 		// Non protected:
+		// Example: 
 		// "/pb.profile.Profiles/ListProfiles": {},
 	}
 
