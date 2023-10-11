@@ -1,0 +1,9 @@
+service:
+  name: identity_hub
+  version: "1.0"
+  grpc:
+    host: localhost
+    port: 8080
+  rest:
+    host: localhost
+    port: 8081

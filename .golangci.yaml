@@ -1,0 +1,40 @@
+run:
+  concurrency: 4
+  timeout: 4m
+  issues-exit-code: 1
+  tests: false
+  skip-dirs:
+    - vendor
+    - tests
+  skip-files:
+    - README.md
+  modules-download-mode: readonly
+  allow-parallel-runners: true
+linters:
+  fast: false
+  enable-all: true
+  disable:
+    - nlreturn
+    - wsl
+    - gci
+    - wrapcheck
+    - gofumpt
+    - exhaustivestruct
+    - exhaustruct
+    - varnamelen
+    - nosnakecase
+    # replaced
+    - maligned
+    - varcheck
+    - structcheck
+    - golint
+    - interfacer
+    - deadcode
+    - scopelint
+    - ifshort
+    # disabled
+    - rowserrcheck
+    - sqlclosecheck
+    - wastedassign
+    - gosec
+    - depguard
